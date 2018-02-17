@@ -1,47 +1,52 @@
 <app-navbar></app-navbar>
-<button (click)="save()">
-  SAVE
-</button>
 
-<h2>
-  รายชื่อนักเรียน
-</h2>
+<div class="container">
+  <div class="d-flex flex-row-reverse m-t-20">
+    <button class="btn btn-outline-success btn-sm" (click)="save()">
+      บันทึก
+    </button>
+    <button class="btn btn-sm btn-outline-primary m-r-10 btn-sm" (click)="addStudent()">
+      เพิ่มนักเรียน
+    </button>
+  </div>
+  <h2 class="text-center m-b-30">
+    รายชื่อนักเรียน
+  </h2>
 
-<button (click)="addStudent()">
-  เพิ่มนักเรียน
-</button>
+  <table class="table" *ngIf="studentList">
+    <thead>
+    <tr>
+      <th scope="col">เลขที่</th>
+      <th scope="col">คำนำหน้า</th>
+      <th scope="col">ชื่อ</th>
+      <th scope="col">นามสกุล</th>
+      <th>
+        Action
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of studentList; let index = index">
+      <td>
+        <input type="text" [(ngModel)]="student.id">
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="student.titleName">
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="student.firstName">
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="student.lastName">
+      </td>
+      <td>
+        <button class="btn btn-outline-danger btn-sm" (click)="remove(index)">
+          ลบ
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
-<table class="table" *ngIf="studentList">
-  <thead>
-  <tr>
-    <th scope="col">เลขที่</th>
-    <th scope="col">คำนำหน้า</th>
-    <th scope="col">ชื่อ</th>
-    <th scope="col">นามสกุล</th>
-    <th>
-      Action
-    </th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let student of studentList; let index = index">
-    <td>
-      <input type="text" [(ngModel)]="student.id">
-    </td>
-    <td>
-      <input type="text" [(ngModel)]="student.titleName">
-    </td>
-    <td>
-      <input type="text" [(ngModel)]="student.firstName">
-    </td>
-    <td>
-      <input type="text" [(ngModel)]="student.lastName">
-    </td>
-    <td>
-      <button (click)="remove(index)">
-        ลบ
-      </button>
-    </td>
-  </tr>
-  </tbody>
-</table>
+
+</div>

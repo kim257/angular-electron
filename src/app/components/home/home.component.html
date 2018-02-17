@@ -1,32 +1,51 @@
 <app-navbar></app-navbar>
-<button (click)="save()">
-  SAVE
-</button>
-<h2>
-  รายละเอียด
-</h2>
-<form>
-  <div class="form-row">
-    <div class="form-group">
-      <label for="semester">
+
+
+<div class="container">
+  <div class="d-flex flex-row-reverse m-t-20">
+    <button class="btn btn-outline-success btn-sm" (click)="save()">
+      บันทึก
+    </button>
+  </div>
+  <h2 class="text-center m-b-30">
+    รายละเอียด
+  </h2>
+  <div class="row">
+    <div class="col-12 row m-b-10">
+      <label class="col-6 text-right p-r-10-p">
         ผลการสอบภาคเรียนที่
       </label>
-      <input type="text" class="form-control" name="semester" id="semester"
+      <input type="text" class="col-6 text-right" name="semester" id="semester"
              placeholder="semester" [(ngModel)]="info.semester">
     </div>
-    <div class="form-group">
-      <label for="class">
+
+    <div class="col-12 row m-b-10">
+      <label class="col-6 text-right p-r-10-p">
         ชั้น
       </label>
-      <input type="text" class="form-control" name="class" id="class"
+      <input type="text" class="col-6 text-right" name="class" id="class"
              placeholder="class" [(ngModel)]="info.class">
     </div>
-    <div class="form-group">
-      <label for="class">
+    <div class="col-12 row m-b-10">
+      <label class="col-6 text-right p-r-10-p">
         ปีการศึกษา
       </label>
-      <input type="text" class="form-control" name="year" id="year"
+      <input type="text" class="col-6 text-right" name="year" id="year"
              placeholder="year" [(ngModel)]="info.year">
     </div>
+    <div class="col-12 row m-b-10">
+      <label class="col-6 text-right p-r-10-p">
+        ชื่อครูประจำชั้น
+      </label>
+      <input type="text" class="col-6 text-right" name="teacher" id="teacher"
+             placeholder="teacher" [(ngModel)]="info.teacher">
+    </div>
+    <div class="col-12 row m-b-10">
+      <label class="col-6 text-right p-r-10-p">
+        ชื่อ ผอ.
+      </label>
+      <input type="text" class="col-6 text-right" name="director" id="director"
+             placeholder="director" [(ngModel)]="info.director">
+    </div>
   </div>
-</form>
+</div>

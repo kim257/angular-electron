@@ -60,7 +60,7 @@ export class PdfComponent implements OnInit {
   }
 
 
-  test() {
+  createPDF() {
     this.router.navigate(['pdfTemplate']);
   }
 

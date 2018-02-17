@@ -18,15 +18,12 @@ export class HomeComponent {
         semester: '',
         year: '',
         class: '',
+        director: '',
+        teacher: ''
       };
     } else {
       this.info = JSON.parse(localStorage.getItem('info'));
     }
-  }
-
-  public testPdf() {
-    this.electronService.createPdf();
-    // ipcRenderer.send('print-to-pdf');
   }
 
   save() {

@@ -1,40 +1,46 @@
 <app-navbar></app-navbar>
 
-<button (click)="save()">
-  SAVE
-</button>
-<button (click)="test()">
-  test
-</button>
+<div class="container">
+  <div class="d-flex flex-row-reverse m-t-20">
+    <button class="btn btn-outline-success btn-sm" (click)="save()">
+      บันทึก
+    </button>
+    <button class="btn btn-sm btn-outline-primary m-r-10 btn-sm" (click)="createPDF()">
+      สร้าง PDF
+    </button>
+  </div>
+  <h2 class="text-center m-b-30">
+    สร้าง PDF File โปรดกรอกคะแนน
+  </h2>
 
-
-<h4>
-  สร้าง PDF File โปรดกรอกคะแนน
-</h4>
-
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">รายชื่อ/รายวิชา</th>
-    <th *ngFor="let subject of subjectsList[0]">
-      {{ subject.name }}
-    </th>
-    <th *ngFor="let subject of subjectsList[1]">
-      {{ subject.name }}
-    </th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let student of studentList; let index = index">
-    <th>
-      {{student.id + '. '}}
-      <span>
+  <table class="table text-center">
+    <thead>
+    <tr>
+      <th scope="col">รายชื่อ/รายวิชา</th>
+      <th *ngFor="let subject of subjectsList[0]">
+        {{ subject.name }}
+      </th>
+      <th *ngFor="let subject of subjectsList[1]">
+        {{ subject.name }}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of studentList; let index = index">
+      <th>
+        {{student.id + '. '}}
+        <span>
       {{student.firstName}}
       </span>
-    </th>
-    <th *ngFor="let score of student.score">
-      <input type="number" min="0" max="100" size="1" maxlength="2" [(ngModel)]="score.point">
-    </th>
-  </tr>
-  </tbody>
-</table>
+      </th>
+      <th *ngFor="let score of student.score">
+        <input type="number" min="0" max="100" size="1" maxlength="2" [(ngModel)]="score.point">
+      </th>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+

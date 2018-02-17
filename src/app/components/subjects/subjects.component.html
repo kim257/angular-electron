@@ -1,52 +1,59 @@
 <app-navbar></app-navbar>
-<button (click)="save()">
-  SAVE
-</button>
 
-<h2>
-  รายวิชา
-</h2>
 
-<div *ngFor="let type of TYPE_OF_SUBJECTS; let indexType = index">
-  <h4>
-    {{type}}
-  </h4>
-  <button (click)="addSubject(indexType)">
-    เพิ่มรายวิชา
-  </button>
+<div class="container">
+  <div class="d-flex flex-row-reverse m-t-20">
+    <button class="btn btn-outline-success btn-sm" (click)="save()">
+      บันทึก
+    </button>
+  </div>
+  <h2 class="text-center m-b-30">
+    รายวิชา
+  </h2>
+  <div *ngFor="let type of TYPE_OF_SUBJECTS; let indexType = index">
+    <div class="d-flex justify-content-between p-b-10">
+      <h4>
+        {{type}}
+      </h4>
+      <button class="btn btn-sm btn-outline-primary" (click)="addSubject(indexType)">
+        เพิ่มรายวิชา
+      </button>
+    </div>
+    <table class="table text-center" *ngIf="subjectsList">
+      <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">รหัสวิชา</th>
+        <th scope="col">รายวิชา</th>
+        <th scope="col">ชั่วโมง /สัปดาห์</th>
+        <th>
+          Action
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let subject of subjectsList[indexType]; let index = index">
+        <th scope="row">
+          {{index+1}}
+        </th>
+        <td>
+          <input type="text" [(ngModel)]="subject.id">
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="subject.name">
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="subject.credit">
+        </td>
+        <td class="text-center">
+          <button class="btn btn-outline-danger btn-sm" (click)="remove(indexType,index)">
+            ลบ
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <table class="table" *ngIf="subjectsList">
-    <thead>
-    <tr>
-      <th scope="col">No</th>
-      <th scope="col">รหัสวิชา</th>
-      <th scope="col">รายวิชา</th>
-      <th scope="col">ชั่วโมง /สัปดาห์</th>
-      <th>
-        Action
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let subject of subjectsList[indexType]; let index = index">
-      <th scope="row">
-        {{index+1}}
-      </th>
-      <td>
-        <input type="text" [(ngModel)]="subject.id">
-      </td>
-      <td>
-        <input type="text" [(ngModel)]="subject.name">
-      </td>
-      <td>
-        <input type="text" [(ngModel)]="subject.credit">
-      </td>
-      <td>
-        <button (click)="remove(indexType,index)">
-          ลบ
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
 </div>
+
