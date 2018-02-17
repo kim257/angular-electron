@@ -1,13 +1,17 @@
-import { app, BrowserWindow, screen } from 'electron';
+import {app, BrowserWindow, ipcMain, screen, shell} from 'electron';
 import * as path from 'path';
+
+import * as fs from 'fs';
+import * as os from 'os';
+// const fs = require('fs');
+// const os = require('os');
 
 let win, serve;
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
 
 if (serve) {
-  require('electron-reload')(__dirname, {
-  });
+  require('electron-reload')(__dirname, {});
 }
 
 function createWindow() {
@@ -38,6 +42,27 @@ function createWindow() {
     // when you should delete the corresponding element.
     win = null;
   });
+
+  ipcMain.on('print-to-pdf', (event) => {
+    const pdfPath = path.join(os.tmpdir(), 'print.pdf');
+    const win = BrowserWindow.fromWebContents(event.sender);
+    win.webContents.printToPDF({
+      landscape: false,
+      pageSize: 'A4',
+      printBackground: false
+    }, (error, data) => {
+      if (error) {
+        throw error
+      }
+      fs.writeFile(pdfPath, data, (error) => {
+        if (error) {
+          throw error
+        }
+        shell.openExternal('file://' + pdfPath)
+        event.sender.send('wrote-pdf', pdfPath)
+      })
+    })
+  })
 }
 
 try {

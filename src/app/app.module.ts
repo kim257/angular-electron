@@ -1,22 +1,26 @@
 import 'zone.js/dist/zone-mix';
 import 'reflect-metadata';
 import 'polyfills';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
-
+import {AppRoutingModule} from './app-routing.module';
 // NG Translate
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
-import { ElectronService } from './providers/electron.service';
+import {ElectronService} from './providers/electron.service';
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import {AppComponent} from './app.component';
+import {HomeComponent} from './components/home/home.component';
+import {SubjectsComponent} from './components/subjects/subjects.component';
+import {StudentsComponent} from './components/students/students.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {PdfComponent} from "./components/pdf/pdf.component";
+import {PdfValueService} from "./providers/pdf-value.service";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -26,7 +30,11 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    NavbarComponent,
+    HomeComponent,
+    SubjectsComponent,
+    StudentsComponent,
+    PdfComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,9 +47,10 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
-    })
+    }),
   ],
-  providers: [ElectronService],
+  providers: [ElectronService, PdfValueService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

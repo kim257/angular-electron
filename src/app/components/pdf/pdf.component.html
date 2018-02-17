@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<button (click)="save()">
+  SAVE
+</button>
+<button (click)="test()">
+  test
+</button>
+
+
+<h4>
+  สร้าง PDF File
+</h4>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">รายชื่อ/รายวิชา</th>
+    <th *ngFor="let subject of subjectsList[0]">
+      {{ subject.name }}
+    </th>
+    <th *ngFor="let subject of subjectsList[1]">
+      {{ subject.name }}
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of studentList; let index = index">
+    <th>
+      {{student.id + '. '}}
+      <span>
+      {{student.firstName}}
+      </span>
+    </th>
+    <th *ngFor="let score of student.score">
+      <input type="text" [(ngModel)]="score.point">
+    </th>
+  </tr>
+  </tbody>
+</table>

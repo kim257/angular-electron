@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<button (click)="save()">
+  SAVE
+</button>
+
+<h2>
+  รายวิชา
+</h2>
+
+<div *ngFor="let type of TYPE_OF_SUBJECTS; let indexType = index">
+  <h4>
+    {{type}}
+  </h4>
+  <button (click)="addSubject(indexType)">
+    เพิ่มรายวิชา
+  </button>
+
+  <table class="table" *ngIf="subjectsList">
+    <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">รหัสวิชา</th>
+      <th scope="col">รายวิชา</th>
+      <th scope="col">ชั่วโมง /สัปดาห์</th>
+      <th>
+        Action
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let subject of subjectsList[indexType]; let index = index">
+      <th scope="row">
+        {{index+1}}
+      </th>
+      <td>
+        <input type="text" [(ngModel)]="subject.id">
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="subject.name">
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="subject.credit">
+      </td>
+      <td>
+        <button (click)="remove(indexType,index)">
+          ลบ
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
