@@ -22,6 +22,7 @@ export class ElectronService {
   }
 
   createPdf() {
+    console.info('PDF created');
     ipcRenderer.send('print-to-pdf');
   }
 

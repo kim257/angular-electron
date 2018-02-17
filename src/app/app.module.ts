@@ -21,6 +21,8 @@ import {StudentsComponent} from './components/students/students.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {PdfComponent} from "./components/pdf/pdf.component";
 import {PdfValueService} from "./providers/pdf-value.service";
+import {PdfTemplateComponent} from './components/pdf-template/pdf-template.component';
+import {ShareService} from "./components/pdf/share.service";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -35,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SubjectsComponent,
     StudentsComponent,
     PdfComponent,
+    PdfTemplateComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
   ],
-  providers: [ElectronService, PdfValueService],
+  providers: [ElectronService, PdfValueService, ShareService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

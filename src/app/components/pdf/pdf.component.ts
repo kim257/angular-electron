@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ElectronService} from "../../providers/electron.service";
 import * as _ from 'lodash';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-pdf',
@@ -15,7 +16,8 @@ export class PdfComponent implements OnInit {
   scoreStudentList: any;
   countBasicAndAdditionalSubject: number;
 
-  constructor(private electronService: ElectronService) {
+  constructor(private electronService: ElectronService,
+              private router: Router) {
 
   }
 
@@ -32,12 +34,12 @@ export class PdfComponent implements OnInit {
 
   init() {
     _.forEach(this.studentList, (element, index) => {
-      // if (_.isUndefined(this.studentList[index].score)) {
-      _.set(this.studentList[index], 'score', []);
-      // }
+      if (_.isUndefined(this.studentList[index].score)) {
+        _.set(this.studentList[index], 'score', []);
+      }
       _.forEach(this.subjectsList[0], (firstSubject, indexSubject) => {
         if (_.isUndefined(this.studentList[index].score[indexSubject])) {
-          this.studentList[index].score.push(firstSubject);
+          this.studentList[index].score.push(_.cloneDeep(firstSubject));
           _.set(this.studentList[index].score[indexSubject], 'point', '0');
           _.set(this.studentList[index].score[indexSubject], 'type', '0');
         }
@@ -46,7 +48,7 @@ export class PdfComponent implements OnInit {
       const countListFirstSubject = _.size(this.subjectsList[0]);
       _.forEach(this.subjectsList[1], (secondSubject, indexSubject) => {
         if (_.isUndefined(this.studentList[index].score[indexSubject + countListFirstSubject])) {
-          this.studentList[index].score.push(secondSubject);
+          this.studentList[index].score.push(_.cloneDeep(secondSubject));
           _.set(this.studentList[index].score[indexSubject + countListFirstSubject], 'point', '0');
           _.set(this.studentList[index].score[indexSubject + countListFirstSubject], 'type', '1');
         }
@@ -59,9 +61,7 @@ export class PdfComponent implements OnInit {
 
 
   test() {
-    // this.electronService.createPdf();
-    console.info('this.studentList', this.studentList);
-    console.info('this.subjectsList', this.subjectsList);
+    this.router.navigate(['pdfTemplate']);
   }
 
   save() {

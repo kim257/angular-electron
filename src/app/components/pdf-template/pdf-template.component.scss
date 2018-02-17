@@ -1,0 +1,39 @@
+@page {
+  size: A4;
+}
+
+.doc {
+  border: black solid 1px;
+  width: 210mm;
+  height: 100%;
+  font-size: 16px;
+}
+
+.red {
+  color: red;
+}
+
+.header-doc {
+  div {
+    margin-bottom: 15px;
+  }
+  margin-bottom: 30px;
+}
+
+.table-doc {
+  thead, tr, th {
+    border: black solid 1px;
+  }
+  th {
+    vertical-align: middle;
+  }
+
+}
+
+.no-border {
+  border: white;
+}
+
+.sub-title {
+  font-size: smaller;
+}

@@ -9,7 +9,7 @@
 
 
 <h4>
-  สร้าง PDF File
+  สร้าง PDF File โปรดกรอกคะแนน
 </h4>
 
 <table class="table">
@@ -33,7 +33,7 @@
       </span>
     </th>
     <th *ngFor="let score of student.score">
-      <input type="text" [(ngModel)]="score.point">
+      <input type="number" min="0" max="100" size="1" maxlength="2" [(ngModel)]="score.point">
     </th>
   </tr>
   </tbody>

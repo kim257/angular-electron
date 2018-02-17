@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {SubjectsComponent} from "./components/subjects/subjects.component";
 import {StudentsComponent} from "./components/students/students.component";
 import {PdfComponent} from "./components/pdf/pdf.component";
+import {PdfTemplateComponent} from "./components/pdf-template/pdf-template.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'pdf',
     component: PdfComponent
+  },
+  {
+    path: 'pdfTemplate',
+    component: PdfTemplateComponent
   },
   {
     path: '**',
