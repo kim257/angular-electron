@@ -23,17 +23,17 @@ export class SubjectsComponent {
           {
             id: '',
             name: '',
-            credit: '1',
+            credit: 1,
           }],
         [{
           id: '',
           name: '',
-          credit: '1',
+          credit: 1,
         }],
         [{
           id: '',
           name: '',
-          credit: '1'
+          credit: 1
         }]
       ];
     } else {
@@ -45,7 +45,7 @@ export class SubjectsComponent {
     this.subjectsList[indexType].push({
       id: '',
       name: '',
-      credit: '1',
+      credit: 1,
     })
   }
 

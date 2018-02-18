@@ -10,7 +10,6 @@ import {ShareService} from "../pdf/share.service";
 })
 export class PdfTemplateComponent {
 
-
   public mocks = [{
     subjectFitst: [
       {
@@ -60,12 +59,18 @@ export class PdfTemplateComponent {
       lastName: 'ออมสิน'
     }
   }];
+  public datas: any;
 
   constructor(private electronService: ElectronService,
               private router: Router,
               private shareService: ShareService) {
-    this.shareService.convertToPDFFormat(JSON.parse(localStorage.getItem('students')));
-    // this.electronService.createPdf();
+    this.datas = this.shareService.convertToPDFFormat(
+      JSON.parse(localStorage.getItem('students')),
+      JSON.parse(localStorage.getItem('subjects')),
+      JSON.parse(localStorage.getItem('info'))
+    );
+    console.info('this.datas', this.datas);
+    this.electronService.createPdf();
     setTimeout(() => {
       // this.router.navigate(['pdf']);
     }, 1000);

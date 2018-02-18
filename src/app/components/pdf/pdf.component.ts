@@ -13,7 +13,8 @@ export class PdfComponent implements OnInit {
   info: any;
   studentList: any;
   subjectsList: any;
-  scoreStudentList: any;
+  subjectsAdditional = [];
+  subjectsBasic = [];
   countBasicAndAdditionalSubject: number;
 
   constructor(private electronService: ElectronService,
@@ -26,10 +27,14 @@ export class PdfComponent implements OnInit {
   }
 
   getAllData() {
-    this.studentList = JSON.parse(localStorage.getItem('students'));
-    this.subjectsList = JSON.parse(localStorage.getItem('subjects'));
-    this.countBasicAndAdditionalSubject = this.subjectsList[0].length + this.subjectsList[1].length;
-    this.init();
+    if (!_.isEmpty(localStorage.getItem('students')) && !_.isEmpty(localStorage.getItem('subjects'))) {
+      this.studentList = JSON.parse(localStorage.getItem('students'));
+      this.subjectsList = JSON.parse(localStorage.getItem('subjects'));
+      this.subjectsBasic = this.subjectsList[0];
+      this.subjectsAdditional = this.subjectsList[1];
+      this.countBasicAndAdditionalSubject = this.subjectsList[0].length + this.subjectsList[1].length;
+      this.init();
+    }
   }
 
   init() {
@@ -40,8 +45,8 @@ export class PdfComponent implements OnInit {
       _.forEach(this.subjectsList[0], (firstSubject, indexSubject) => {
         if (_.isUndefined(this.studentList[index].score[indexSubject])) {
           this.studentList[index].score.push(_.cloneDeep(firstSubject));
-          _.set(this.studentList[index].score[indexSubject], 'point', '0');
-          _.set(this.studentList[index].score[indexSubject], 'type', '0');
+          _.set(this.studentList[index].score[indexSubject], 'score', 0);
+          _.set(this.studentList[index].score[indexSubject], 'type', 0);
         }
       });
 
@@ -49,14 +54,12 @@ export class PdfComponent implements OnInit {
       _.forEach(this.subjectsList[1], (secondSubject, indexSubject) => {
         if (_.isUndefined(this.studentList[index].score[indexSubject + countListFirstSubject])) {
           this.studentList[index].score.push(_.cloneDeep(secondSubject));
-          _.set(this.studentList[index].score[indexSubject + countListFirstSubject], 'point', '0');
-          _.set(this.studentList[index].score[indexSubject + countListFirstSubject], 'type', '1');
+          _.set(this.studentList[index].score[indexSubject + countListFirstSubject], 'score', 0);
+          _.set(this.studentList[index].score[indexSubject + countListFirstSubject], 'type', 1);
         }
       });
     });
     this.save();
-    console.info('this.studentList', this.studentList);
-    console.info('this.subjectsList', this.subjectsList);
   }
 
 

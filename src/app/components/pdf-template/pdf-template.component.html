@@ -1,122 +1,135 @@
-<div *ngFor="let data of mocks">
-  <div class="doc">
-    <div class="text-center header-doc">
-      <div>
-        แบบแจ้งผลการสอบภาคเรียนที่ <span class="red"> {{data.information.semester}} </span>
-      </div>
-      <div>
-        โรงเรียนบ้านสามัคคี
-      </div>
-      <div>
-        ชั้นประถมศึกษาปีที่
-        <span class="red">
-          {{data.information.class}}
+<div class="doc" *ngFor="let data of datas;let index=index;">
+  <div class="text-center header-doc">
+    <div>
+      แบบแจ้งผลการสอบภาคเรียนที่ <span> {{data.information.semester || ''}} </span>
+    </div>
+    <div>
+      โรงเรียนบ้านสามัคคี
+    </div>
+    <div>
+      ชั้นประถมศึกษาปีที่
+      <span>
+          {{data.information.class|| '' }}
         </span>
-        ปีการศึกษา
-        <span class="red">
-          {{data.information.year}}
+      ปีการศึกษา
+      <span>
+          {{data.information.year || ''}}
         </span>
-      </div>
-      <div>
-        ชื่อ
-        <span class="red">
+    </div>
+    <div>
+      ชื่อ
+      <span>
           {{data.student.titleName + data.student.firstName + ' '+ data.student.lastName}}
         </span>
-        เลขที่
-        <span class="red">
-          {{data.student.id}}
+      เลขที่
+      <span>
+          {{data.student.id || ''}}
         </span>
-      </div>
     </div>
-    <table class="table table-doc">
-      <thead class="text-center">
-      <tr>
-        <th rowspan="2">รหัสวิชา</th>
-        <th rowspan="2">รายวิชา</th>
-        <th rowspan="2">ชั่วโมง / สัปดาห์</th>
-        <th colspan="2">ผลการสอบปลายภาค</th>
-        <th rowspan="2">หมายเหตุ</th>
-      </tr>
-      <tr>
-        <th class="sub-title">คะแนนเต็ม</th>
-        <th class="sub-title">คะแนนที่ได้</th>
-      </tr>
-      </thead>
-      <tbody class="text-center">
-      <tr>
-        <td>รหัสวิชาพื้นฐาน</td>
-      </tr>
-      <tr *ngFor="let subject of data.subjectFitst">
-        <td>{{subject.id}}</td>
-        <td>{{subject.name}}</td>
-        <td>{{subject.credit}}</td>
-        <td>100</td>
-        <td>{{subject.score}}</td>
-        <td>{{subject.grade}}</td>
-      </tr>
+  </div>
+  <table class="table table-doc">
+    <tbody class="text-center">
+    <tr>
+      <td rowspan="2">รหัสวิชา</td>
+      <td rowspan="2">รายวิชา</td>
+      <td rowspan="2">ชั่วโมง / สัปดาห์</td>
+      <td colspan="2">ผลการสอบปลายภาค</td>
+      <td rowspan="2">หมายเหตุ</td>
+    </tr>
+    <tr>
+      <td class="sub-title">คะแนนเต็ม</td>
+      <td class="sub-title">คะแนนที่ได้</td>
+    </tr>
+    </tbody>
 
-      <tr>
-        <td>รหัสวิชาเพิ่มเติม</td>
-      </tr>
-      <tr *ngFor="let subject of data.subjectSecond">
-        <td>{{subject.id}}</td>
-        <td>{{subject.name}}</td>
-        <td>{{subject.credit}}</td>
-        <td>100</td>
-        <td>{{subject.score}}</td>
-        <td>{{subject.grade}}</td>
-      </tr>
 
-      <tr>
-        <td>กิจกรรมพัฒนาฯ</td>
-      </tr>
-      <tr *ngFor="let subject of data.subjectThird">
-        <td></td>
-        <td>{{subject.name}}</td>
-        <td>{{subject.credit}}</td>
-        <td>ผ</td>
-        <td>ผ</td>
-        <td></td>
-      </tr>
-      </tbody>
-    </table>
-    <div class="row text-center bottom-doc">
-      <div class="text-center col-12 p-b-20">
-        รวมคะแนนที่ได้
-        <span>
+    <tbody class="text-center">
+    <tr>
+      <td>รหัสวิชาพื้นฐาน</td>
+      <td class="b-r-blank"></td>
+      <td class="b-r-blank"></td>
+      <td class="b-r-blank"></td>
+      <td class="b-r-blank"></td>
+      <td></td>
+    </tr>
+    <tr *ngFor="let subject of data.subjectFitst">
+      <td>{{subject.id}}</td>
+      <td>{{subject.name}}</td>
+      <td>{{subject.credit}}</td>
+      <td>100</td>
+      <td>{{subject.score}}</td>
+      <td>{{subject.grade}}</td>
+    </tr>
+
+    <tr>
+      <td class="b-r-blank">รหัสวิชาเพิ่มเติม</td>
+    </tr>
+    <tr *ngFor="let subject of data.subjectSecond">
+      <td>{{subject.id}}</td>
+      <td>{{subject.name}}</td>
+      <td>{{subject.credit}}</td>
+      <td>100</td>
+      <td>{{subject.score}}</td>
+      <td>{{subject.grade}}</td>
+    </tr>
+
+    <tr>
+      <td class="b-r-blank">กิจกรรมพัฒนาฯ</td>
+    </tr>
+    <tr *ngFor="let subject of data.subjectThird">
+      <td></td>
+      <td>{{subject.name}}</td>
+      <td>{{subject.credit}}</td>
+      <td>ผ</td>
+      <td>ผ</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td>{{data.total.credit}}</td>
+      <td>{{data.total.maxScore}}</td>
+      <td>{{data.total.score}}</td>
+      <td>{{data.total.grade}}</td>
+    </tr>
+
+    </tbody>
+  </table>
+  <div class="row text-center bottom-doc">
+    <div class="text-center col-12 p-b-20">
+      รวมคะแนนที่ได้
+      <span>
         {{data.total.score + '  '}}
       </span>
-        เฉลี่ยร้อยละที่ได้
-        <span>
+      เฉลี่ยร้อยละที่ได้
+      <span>
         {{data.total.percentage + '  '}}
       </span>
-        ลำดับที่
-        <span>
-        {{data.total.rank + '  '}}
+      ลำดับที่
+      <span>
+        {{ index + 1}}
       </span>
-        จำนวนนักเรียนทั้งหมด
-        <span>
+      จำนวนนักเรียนทั้งหมด
+      <span>
         {{data.total.studentCound}}
       </span>
-        คน
-      </div>
-      <div class="col-12">
-        ลงชื่อ…………………………………ครูประจำชั้น
-      </div>
-      <div class="col-12 p-b-20">
-        (นางสาวขจีภรณ์ โต๊ะบุรินทร์)
-      </div>
-      <div class="col-12">
-        ลงชื่อ…………………………………ผู้บริหาร
-      </div>
-      <div class="col-12">
-        (นายศักดิ์ชัย แสนโอฬาร)
-      </div>
-      <div class="col-12">
-        ผู้อำนวยการโรงเรียนบ้านสามัคคี
-      </div>
+      คน
     </div>
-
-
+    <div class="col-12">
+      ลงชื่อ…………………………………ครูประจำชั้น
+    </div>
+    <div class="col-12 p-b-20">
+      ({{data.information.teacher|| '' }})
+    </div>
+    <div class="col-12">
+      ลงชื่อ…………………………………ผู้บริหาร
+    </div>
+    <div class="col-12">
+      ({{data.information.director|| '' }})
+    </div>
+    <div class="col-12">
+      ผู้อำนวยการโรงเรียนบ้านสามัคคี
+    </div>
   </div>
 </div>

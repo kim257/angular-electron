@@ -13,15 +13,15 @@
     สร้าง PDF File โปรดกรอกคะแนน
   </h2>
 
-  <table class="table text-center">
+  <table class="table text-center" style="overflow: auto">
     <thead>
     <tr>
       <th scope="col">รายชื่อ/รายวิชา</th>
-      <th *ngFor="let subject of subjectsList[0]">
-        {{ subject.name }}
+      <th *ngFor="let subject of subjectsBasic ">
+        {{ subject.name || '' }}
       </th>
-      <th *ngFor="let subject of subjectsList[1]">
-        {{ subject.name }}
+      <th *ngFor="let subject of subjectsAdditional">
+        {{ subject.name || ''}}
       </th>
     </tr>
     </thead>
@@ -34,7 +34,7 @@
       </span>
       </th>
       <th *ngFor="let score of student.score">
-        <input type="number" min="0" max="100" size="1" maxlength="2" [(ngModel)]="score.point">
+        <input type="number" min="0" max="100" size="1" maxlength="2" [(ngModel)]="score.score">
       </th>
     </tr>
     </tbody>
