@@ -37,7 +37,7 @@ export class ShareService {
       credit: 6,
       maxScore: 200,
       grade: 3.75,
-      percentage: '75%',
+      percentage: '75',
       rank: 1,
       studentCound: 2
     },
@@ -86,7 +86,7 @@ export class ShareService {
           credit: totalCredit,
           maxScore: totalMaxScore,
           grade: _.round(_.round(totalGrade, 2) / _.size(element.score), 2),
-          percentage: _.round(((totalScore / totalMaxScore) * 100), 2) + ' %',
+          percentage: _.round(((totalScore / totalMaxScore) * 100), 2),
           studentCound: _.size(students)
         }
       })

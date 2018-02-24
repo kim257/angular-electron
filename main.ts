@@ -24,7 +24,8 @@ function createWindow() {
     x: 0,
     y: 0,
     width: size.width,
-    height: size.height
+    height: size.height,
+    icon: path.join('file://' + __dirname, '/assets/icons/yongyee.ico')
   });
 
   // and load the index.html of the app.
