@@ -8,6 +8,8 @@
   width: 210mm;
   height: 100%;
   font-size: 16px;
+  font-family: 'THSarabunNew';
+  padding-top: 5px;
 }
 
 .red {
@@ -27,6 +29,7 @@
   }
   td {
     vertical-align: middle;
+    padding-bottom: 0px !important;
   }
 
 }
@@ -58,12 +61,61 @@ tbody {
   border: 1px solid black !important;
 }
 
-.b-r-blank {
-  border-right: white solid 0.01px !important;
+.b-b-blank {
+  border-bottom: white solid 0.01px !important;
 }
 
 .remove-border-top {
   td:first-child {
     border-top: white !important;
   }
+}
+
+.l-h-30 {
+  line-height: 30px
+}
+
+
+@font-face {
+  font-family: 'THSarabunNew';
+  src: url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew-webfont.eot');
+  src: url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew-webfont.woff') format('woff'),
+  url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'THSarabunNew';
+  src: url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew_bolditalic-webfont.eot');
+  src: url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew_bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew_bolditalic-webfont.woff') format('woff'),
+  url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew_bolditalic-webfont.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+
+}
+
+@font-face {
+  font-family: 'THSarabunNew';
+  src: url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew_italic-webfont.eot');
+  src: url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew_italic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew_italic-webfont.woff') format('woff'),
+  url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew_italic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+
+}
+
+@font-face {
+  font-family: 'THSarabunNew';
+  src: url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew_bold-webfont.eot');
+  src: url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew_bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew_bold-webfont.woff') format('woff'),
+  url('../../../assets/sarabun-webfont-master/fonts/thsarabunnew_bold-webfont.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+
 }

@@ -28,7 +28,7 @@
     </div>
   </div>
   <table class="table table-doc">
-    <tbody class="text-center">
+    <tbody class="text-center" style="font-weight: 600">
     <tr>
       <td rowspan="2">รหัสวิชา</td>
       <td rowspan="2">รายวิชา</td>
@@ -44,47 +44,54 @@
 
 
     <tbody class="text-center">
-    <tr>
-      <td>รหัสวิชาพื้นฐาน</td>
-      <td class="b-r-blank"></td>
-      <td class="b-r-blank"></td>
-      <td class="b-r-blank"></td>
-      <td class="b-r-blank"></td>
-      <td></td>
+    <tr class="l-h-30">
+      <td class="b-b-blank">รหัสวิชาพื้นฐาน</td>
+      <td class="b-b-blank"></td>
+      <td class="b-b-blank"></td>
+      <td class="b-b-blank"></td>
+      <td class="b-b-blank"></td>
+      <td class="b-b-blank"></td>
     </tr>
-    <tr *ngFor="let subject of data.subjectFitst">
+    <tr class="remove-border-top" *ngFor="let subject of data.subjectFitst">
       <td>{{subject.id}}</td>
-      <td>{{subject.name}}</td>
+      <td class="text-left">{{subject.name}}</td>
       <td>{{subject.credit}}</td>
       <td>100</td>
       <td>{{subject.score}}</td>
       <td>{{subject.grade}}</td>
     </tr>
-
-    <tr>
-      <td class="b-r-blank">รหัสวิชาเพิ่มเติม</td>
+    <tr class="l-h-30">
+      <td class="b-b-blank">รหัสวิชาเพิ่มเติม</td>
+      <td class="b-b-blank"></td>
+      <td class="b-b-blank"></td>
+      <td class="b-b-blank"></td>
+      <td class="b-b-blank"></td>
+      <td class="b-b-blank"></td>
     </tr>
     <tr *ngFor="let subject of data.subjectSecond">
       <td>{{subject.id}}</td>
-      <td>{{subject.name}}</td>
+      <td class="text-left">{{subject.name}}</td>
       <td>{{subject.credit}}</td>
       <td>100</td>
       <td>{{subject.score}}</td>
       <td>{{subject.grade}}</td>
     </tr>
-
-    <tr>
-      <td class="b-r-blank">กิจกรรมพัฒนาฯ</td>
+    <tr class="l-h-30">
+      <td class="b-b-blank">กิจกรรมพัฒนาฯ</td>
+      <td class="b-b-blank"></td>
+      <td class="b-b-blank"></td>
+      <td class="b-b-blank"></td>
+      <td class="b-b-blank"></td>
+      <td class="b-b-blank"></td>
     </tr>
     <tr *ngFor="let subject of data.subjectThird">
       <td></td>
-      <td>{{subject.name}}</td>
+      <td class="text-left">{{subject.name}}</td>
       <td>{{subject.credit}}</td>
       <td>ผ</td>
       <td>ผ</td>
       <td></td>
     </tr>
-
     <tr>
       <td></td>
       <td></td>
@@ -93,7 +100,6 @@
       <td>{{data.total.score}}</td>
       <td>{{data.total.grade}}</td>
     </tr>
-
     </tbody>
   </table>
   <div class="row text-center bottom-doc">
