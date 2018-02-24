@@ -60,7 +60,6 @@ export class ShareService {
 
     const datas = [];
     _.forEach(students, (element) => {
-      console.info('element >>', element);
       let totalScore = 0;
       let totalCredit = 0;
       let totalMaxScore = 0;
@@ -86,7 +85,7 @@ export class ShareService {
           score: totalScore,
           credit: totalCredit,
           maxScore: totalMaxScore,
-          grade: _.round(totalGrade / _.size(element.score)),
+          grade: _.round(_.round(totalGrade, 2) / _.size(element.score), 2),
           percentage: _.round(((totalScore / totalMaxScore) * 100), 2) + ' %',
           studentCound: _.size(students)
         }

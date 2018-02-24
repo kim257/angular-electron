@@ -69,10 +69,12 @@ export class PdfTemplateComponent {
       JSON.parse(localStorage.getItem('subjects')),
       JSON.parse(localStorage.getItem('info'))
     );
-    console.info('this.datas', this.datas);
+    if (!this.datas) {
+      return;
+    }
     this.electronService.createPdf();
     setTimeout(() => {
-      // this.router.navigate(['pdf']);
-    }, 1000);
+      this.router.navigate(['pdf']);
+    }, 2000);
   }
 }

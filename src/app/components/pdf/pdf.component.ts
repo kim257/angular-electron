@@ -33,9 +33,20 @@ export class PdfComponent implements OnInit {
       this.subjectsBasic = this.subjectsList[0];
       this.subjectsAdditional = this.subjectsList[1];
       this.countBasicAndAdditionalSubject = this.subjectsList[0].length + this.subjectsList[1].length;
-      // this.ch
+      this.checkSubject();
       this.init();
     }
+  }
+
+  checkSubject() {
+    const subjectNameList = _.map(_.concat(this.subjectsBasic, this.subjectsAdditional), 'id');
+    _.forEach(this.studentList, (student) => {
+      _.forEach(student.score, (score) => {
+        if (_.indexOf(subjectNameList, score.id) < 0) {
+          student.score = undefined;
+        }
+      })
+    })
   }
 
   init() {
@@ -63,26 +74,12 @@ export class PdfComponent implements OnInit {
     this.save();
   }
 
-
   createPDF() {
-    // ลบข้อมูลที่ไม่ตรงออกด้วย
-    console.info('student', JSON.parse(localStorage.getItem('students')));
-    console.info('subject', JSON.parse(localStorage.getItem('subjects')));
-
-    // this.clearOldSubject();
-    // this.save();
+    this.save();
     this.router.navigate(['pdfTemplate']);
   }
 
   save() {
     localStorage.setItem('students', JSON.stringify(this.studentList))
-  }
-
-  clearOldSubject() {
-    _.forEach(this.studentList, (student) => {
-      _.forEach(student.score, (score, index) => {
-        console.info(_.some(JSON.parse(localStorage.getItem('subjects')), ['id', score.id]), score, index);
-      })
-    })
   }
 }
