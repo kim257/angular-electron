@@ -1,7 +1,7 @@
 {
-  "name": "angular-electron",
-  "version": "2.4.1",
-  "description": "Angular 5 with Electron (Typescript + SASS + Hot Reload)",
+  "name": "yongyee",
+  "version": "1.0.0",
+  "description": "โปรแกรมสำหรับสร้างใบผลการเรียนของเด็กประถม Cr. https://github.com/maximegris/angular-electron และ font TH Sarabun PSK โดย คุณศุภกิจ เฉลิมลาภ",
   "main": "main.js",
   "private": true,
   "scripts": {

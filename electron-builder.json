@@ -5,7 +5,7 @@
     "output": "app-builds"
   },
   "win": {
-    "icon": "dist/favicon",
+    "icon": "dist/assets/icons/yongyee",
     "target": [
       "portable"
     ]
