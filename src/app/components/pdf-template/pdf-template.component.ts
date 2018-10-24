@@ -11,7 +11,7 @@ import {ShareService} from "../pdf/share.service";
 export class PdfTemplateComponent {
 
   public mocks = [{
-    subjectFitst: [
+    subjectFirst: [
       {
         name: 'ภาษาไทย',
         id: 'ds123',

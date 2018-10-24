@@ -34,7 +34,9 @@
       </span>
       </th>
       <th *ngFor="let score of student.score">
-        <input type="number" min="0" max="100" size="1" maxlength="2" [(ngModel)]="score.score">
+        <input type="text" min="0" max="100" size="1" maxlength="3" style="width: 70px"
+               onkeypress="return event.charCode >= 48 && event.charCode <= 57;"
+               [(ngModel)]="score.score">
       </th>
     </tr>
     </tbody>

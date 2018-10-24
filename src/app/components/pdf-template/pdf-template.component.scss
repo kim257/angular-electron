@@ -21,6 +21,7 @@
     margin-bottom: 15px;
   }
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .table-doc {
@@ -64,6 +65,11 @@ tbody {
 .b-b-blank {
   border-bottom: white solid 0.01px !important;
 }
+
+.b-t-blank {
+  border-top: white solid 0.01px !important;
+}
+
 
 .remove-border-top {
   td:first-child {

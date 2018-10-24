@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 export class ShareService {
 
   public mocks = [{
-    subjectFitst: [
+    subjectFirst: [
       {
         name: 'ภาษาไทย',
         id: 'ds123',
@@ -65,18 +65,18 @@ export class ShareService {
       let totalMaxScore = 0;
       let totalGrade = 0;
 
-      let subjectFitst = [];
+      let subjectFirst = [];
       let subjectSecond = [];
       _.forEach(element.score, (score) => {
-        totalScore += score.score;
+        totalScore += Number(score.score);
         totalMaxScore += 100;
         totalCredit += score.credit;
         totalGrade += this.checkGrade(score.score);
         _.set(score, 'grade', this.checkGrade(score.score));
-        (score.type === 0) ? subjectFitst.push(score) : subjectSecond.push(score);
+        (score.type === 0) ? subjectFirst.push(score) : subjectSecond.push(score);
       });
       datas.push({
-        subjectFitst: subjectFitst,
+        subjectFirst: subjectFirst,
         subjectSecond: subjectSecond,
         subjectThird: subjects[2],
         information: info,

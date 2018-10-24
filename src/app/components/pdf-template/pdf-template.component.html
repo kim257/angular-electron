@@ -52,7 +52,7 @@
       <td class="b-b-blank"></td>
       <td class="b-b-blank"></td>
     </tr>
-    <tr class="remove-border-top" *ngFor="let subject of data.subjectFitst">
+    <tr class="remove-border-top" *ngFor="let subject of data.subjectFirst">
       <td>{{subject.id}}</td>
       <td class="text-left">{{subject.name}}</td>
       <td>{{subject.credit}}</td>
@@ -68,13 +68,13 @@
       <td class="b-b-blank"></td>
       <td class="b-b-blank"></td>
     </tr>
-    <tr *ngFor="let subject of data.subjectSecond">
-      <td>{{subject.id}}</td>
-      <td class="text-left">{{subject.name}}</td>
-      <td>{{subject.credit}}</td>
-      <td>100</td>
-      <td>{{subject.score}}</td>
-      <td>{{subject.grade}}</td>
+    <tr *ngFor="let subject of data.subjectSecond;let index = index">
+      <td [ngClass]="{'b-b-blank': index + 1 != data.subjectSecond.length}">{{subject.id}}</td>
+      <td [ngClass]="{'b-b-blank': index + 1 != data.subjectSecond.length}" class="text-left">{{subject.name}}</td>
+      <td [ngClass]="{'b-b-blank': index + 1 != data.subjectSecond.length}">{{subject.credit}}</td>
+      <td [ngClass]="{'b-b-blank': index + 1 != data.subjectSecond.length}">100</td>
+      <td [ngClass]="{'b-b-blank': index + 1 != data.subjectSecond.length}">{{subject.score}}</td>
+      <td [ngClass]="{'b-b-blank': index + 1 != data.subjectSecond.length}">{{subject.grade}}</td>
     </tr>
     <tr class="l-h-30">
       <td class="b-b-blank fs-14 font-weight-bold">กิจกรรมพัฒนาฯ</td>
@@ -84,13 +84,13 @@
       <td class="b-b-blank"></td>
       <td class="b-b-blank"></td>
     </tr>
-    <tr *ngFor="let subject of data.subjectThird">
-      <td></td>
-      <td class="text-left">{{subject.name}}</td>
-      <td>{{subject.credit}}</td>
-      <td>ผ</td>
-      <td>ผ</td>
-      <td></td>
+    <tr *ngFor="let subject of data.subjectThird;let index = index">
+      <td [ngClass]="{'b-b-blank': index + 1 != data.subjectThird.length}"></td>
+      <td class="text-left" [ngClass]="{'b-b-blank': index + 1 != data.subjectThird.length}">{{subject.name}}</td>
+      <td [ngClass]="{'b-b-blank': index + 1 != data.subjectThird.length}">{{subject.credit}}</td>
+      <td [ngClass]="{'b-b-blank': index + 1 != data.subjectThird.length}">ผ</td>
+      <td [ngClass]="{'b-b-blank': index + 1 != data.subjectThird.length}">ผ</td>
+      <td [ngClass]="{'b-b-blank': index + 1 != data.subjectThird.length}"></td>
     </tr>
     <tr>
       <td></td>
@@ -103,7 +103,7 @@
     </tbody>
   </table>
   <div class="row text-center bottom-doc">
-    <div class="text-center col-12 p-b-20">
+    <div class="text-center col-12 p-b-20" style="margin-top: 15px">
       รวมคะแนนที่ได้
       <span>
         {{data.total.score + '  '}}
@@ -122,13 +122,14 @@
       </span>
       คน
     </div>
-    <div class="col-12" style="margin-top: 20px">
+
+    <div class="col-12" style="margin-top: 30px;">
       ลงชื่อ…………………………………ครูประจำชั้น
     </div>
     <div class="col-12 p-b-20">
       ({{data.information.teacher|| '' }})
     </div>
-    <div class="col-12">
+    <div class="col-12" style="margin-top: 30px">
       ลงชื่อ…………………………………ผู้บริหาร
     </div>
     <div class="col-12">
