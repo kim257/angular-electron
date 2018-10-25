@@ -25,6 +25,8 @@
 }
 
 .table-doc {
+  max-width: 700px;
+  margin: auto;
   td, th {
     border: black solid 1px;
   }
@@ -69,7 +71,6 @@ tbody {
 .b-t-blank {
   border-top: white solid 0.01px !important;
 }
-
 
 .remove-border-top {
   td:first-child {
